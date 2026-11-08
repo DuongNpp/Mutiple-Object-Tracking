@@ -84,7 +84,7 @@ Mỗi dòng trong `gt.txt` biểu diễn trạng thái của **một đối tư�
 
 ```text
 <frame>, <id>, <bb_left>, <bb_top>, <bb_width>, <bb_height>, <conf>, <class>, <visibility>
-
+```
 ### Chi tiết các trường dữ liệu:
 1. **`frame` (int):** Chỉ số khung hình (1-indexed, $1 \le \text{frame} \le \text{seqLength}$).
 2. **`id` (int):** Mã định danh duy nhất của cá thể đối tượng trong chuỗi đó (1-indexed). Duy trì cố định xuyên suốt vòng đời của cá thể trong cùng một video.
