@@ -134,9 +134,9 @@ w = \hat{w}_p \times W, \quad h = \hat{h}_p \times H
 $$
 
 ### 5.3. Liên kết hàm mất mát trong huấn luyện
-* **Hồi quy hộp** ($\mathcal{L}_{\text{L1}}$, $\mathcal{L}_{\text{GIoU}}$): Sử dụng trực tiếp vector đã chuẩn hóa $\mathbf{b}_{\text{gt}}$ để tính khoảng cách và diện tích bao lồi.
-* **Phân loại đối tượng** ($\mathcal{L}_{\text{Focal}}$): Dựa vào trường `class` và cờ `conf = 1` để định danh nhãn Positive trong bài toán cân bằng mẫu âm/dương.
-* **Dự đoán định danh** ($\mathcal{L}_{\text{id}}$ hay $\mathcal{L}_{\text{ID-CE}}$): Mã `id` được ánh xạ cục bộ thành phân phối nhãn danh tính trong tập cửa sổ thời gian trượt (Temporal Window Clip).
+* **Hồi quy hộp ($L_{\text{L1}}$, $L_{\text{GIoU}}$):** Sử dụng trực tiếp vector đã chuẩn hóa $\mathbf{b}_{\text{gt}}$ để tính khoảng cách và diện tích bao lồi.
+* **Phân loại đối tượng ($L_{\text{Focal}}$):** Dựa vào trường `class` và cờ `conf = 1` để định danh nhãn Positive trong bài toán cân bằng mẫu âm/dương.
+* **Dự đoán định danh ($L_{\text{id}}$ hay $L_{\text{ID-CE}}$):** Mã `id` được ánh xạ cục bộ thành phân phối nhãn danh tính trong tập cửa sổ thời gian trượt (Temporal Window Clip).
 
 ---
 
