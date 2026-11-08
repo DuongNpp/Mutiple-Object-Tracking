@@ -82,7 +82,8 @@ imExt=.jpg
 ## 4. Đặc tả nhãn Ground Truth chuẩn hóa (`gt/gt.txt`)
 Mỗi dòng trong `gt.txt` biểu diễn trạng thái của **một đối tượng tại một thời điểm**, phân tách bằng dấu phẩy theo chuẩn quốc tế 9 cột:
 
-$$\langle\text{frame}\rangle, \langle\text{id}\rangle, \langle\text{bb\_left}\rangle, \langle\text{bb\_top}\rangle, \langle\text{bb\_width}\rangle, \langle\text{bb\_height}\rangle, \langle\text{conf}\rangle, \langle\text{class}\rangle, \langle\text{visibility}\rangle$$
+```text
+<frame>, <id>, <bb_left>, <bb_top>, <bb_width>, <bb_height>, <conf>, <class>, <visibility>
 
 ### Chi tiết các trường dữ liệu:
 1. **`frame` (int):** Chỉ số khung hình (1-indexed, $1 \le \text{frame} \le \text{seqLength}$).
@@ -133,9 +134,9 @@ w = \hat{w}_p \times W, \quad h = \hat{h}_p \times H
 $$
 
 ### 5.3. Liên kết hàm mất mát trong huấn luyện
-* **Hồi quy hộp ($\mathcal{L}_{L1}, \mathcal{L}_{GIoU}$):** Sử dụng trực tiếp vector đã chuẩn hóa $\mathbf{b}_{gt}$ để tính khoảng cách và diện tích bao lồi.
-* **Phân loại đối tượng ($\mathcal{L}_{Focal}$):** Dựa vào trường `class` và cờ `conf = 1` để định danh nhãn Positive trong bài toán cân bằng mẫu âm/dương.
-* **Dự đoán định danh ($\mathcal{L}_{ID\_CE}$):** Mã `id` được ánh xạ cục bộ thành phân phối nhãn danh tính trong tập cửa sổ thời gian trượt (Temporal Window Clip).
+* **Hồi quy hộp ($\mathcal{L}_{L1}$, $\mathcal{L}_{\text{GIoU}}$):** Sử dụng trực tiếp vector đã chuẩn hóa $\mathbf{b}_{gt}$ để tính khoảng cách và diện tích bao lồi.
+* **Phân loại đối tượng ($\mathcal{L}_{\text{Focal}}$):** Dựa vào trường `class` và cờ `conf = 1` để định danh nhãn Positive trong bài toán cân bằng mẫu âm/dương.
+* **Dự đoán định danh ($\mathcal{L}_{\text{ID\_CE}}$):** Mã `id` được ánh xạ cục bộ thành phân phối nhãn danh tính trong tập cửa sổ thời gian trượt (Temporal Window Clip).
 
 ---
 
