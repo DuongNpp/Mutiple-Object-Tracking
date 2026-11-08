@@ -20,20 +20,39 @@ HOTA là tiêu chuẩn vàng đánh giá MOT hiện nay, được thiết kế �
 
 1. **Ngưỡng tương đồng không gian ($\alpha$):**
    * Đánh giá được tính trung bình trên 19 ngưỡng IoU khác nhau: $\alpha \in \{0.05, 0.10, \dots, 0.90, 0.95\}$.
+
 2. **Khớp nối tại từng frame:**
    * Tại mỗi ngưỡng $\alpha$, thuật toán so khớp giữa các hộp dự đoán ($Pr$) và nhãn thật ($Gt$) để chia thành các tập: $TP_\alpha$ (True Positives), $FP_\alpha$ (False Positives), và $FN_\alpha$ (False Negatives).
+
 3. **Đo lường độ chính xác phát hiện (Detection Accuracy - DetA):**
-   $$\text{DetA}_\alpha = \frac{\vert{}TP_\alpha\vert{}}{\vert{}TP_\alpha\vert{} + \vert{}FN_\alpha\vert{} + \vert{}FP_\alpha\vert{}}$$
+
+$$
+\text{DetA}_\alpha = \frac{|TP_\alpha|}{|TP_\alpha| + |FN_\alpha| + |FP_\alpha|}
+$$
+
 4. **Đo lường độ chính xác liên kết quỹ đạo (Association Accuracy - AssA):**
    * Với mỗi điểm khớp $c \in TP_\alpha$, xét toàn bộ quỹ đạo của đối tượng đó xuyên suốt video:
      * $TPA(c)$: Các frame mà cả nhãn thật và dự đoán đều khớp đúng cùng một ID đó.
      * $FPA(c)$: Các frame mà mô hình gán sai ID đó cho đối tượng khác.
      * $FNA(c)$: Các frame mà ID đó bị bỏ sót hoặc nhảy sang ID khác.
-   $$\mathcal{A}_\alpha(c) = \frac{\vert{}TPA(c)\vert{}}{\vert{}TPA(c)\vert{} + \vert{}FPA(c)\vert{} + \vert{}FNA(c)\vert{}}$$
-   $$\text{AssA}_\alpha = \frac{1}{\vert{}TP_\alpha\vert{}} \sum_{c \in TP_\alpha} \mathcal{A}_\alpha(c)$$
+
+$$
+\mathcal{A}_\alpha(c) = \frac{|TPA(c)|}{|TPA(c)| + |FPA(c)| + |FNA(c)|}
+$$
+
+$$
+\text{AssA}_\alpha = \frac{1}{|TP_\alpha|} \sum_{c \in TP_\alpha} \mathcal{A}_\alpha(c)
+$$
+
 5. **Công thức HOTA tổng hợp:**
-   $$\text{HOTA}_\alpha = \sqrt{\frac{\sum_{c \in TP_\alpha} \mathcal{A}_\alpha(c)}{\vert{}TP_\alpha\vert{} + \vert{}FN_\alpha\vert{} + \vert{}FP_\alpha\vert{}}} = \sqrt{\text{DetA}_\alpha \times \text{AssA}_\alpha}$$
-   $$\text{HOTA} = \frac{1}{19} \sum_{\alpha} \text{HOTA}_\alpha$$
+
+$$
+\text{HOTA}_\alpha = \sqrt{\frac{\sum_{c \in TP_\alpha} \mathcal{A}_\alpha(c)}{|TP_\alpha| + |FN_\alpha| + |FP_\alpha|}} = \sqrt{\text{DetA}_\alpha \times \text{AssA}_\alpha}
+$$
+
+$$
+\text{HOTA} = \frac{1}{19} \sum_{\alpha} \text{HOTA}_\alpha
+$$
 
 ---
 
