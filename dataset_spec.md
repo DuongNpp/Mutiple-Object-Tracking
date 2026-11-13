@@ -1,7 +1,7 @@
 # ĐẶC TẢ KỸ THUẬT DỮ LIỆU TỔNG QUÁT (GENERALIZED MOT DATASET SPECIFICATION)
 **Đề tài:** Nghiên cứu theo dõi đa đối tượng (Multiple Object Tracking - MOT) dựa trên mô hình Deep Learning  
 **Phạm vi áp dụng:** Chuẩn hóa cho mọi bộ dữ liệu MOT dạng video (DanceTrack, SportsMOT, BFT, MOT17/20 và dữ liệu tùy biến)  
-**Tài liệu tham chiếu:** `dataset_spec.md` (Phiên bản Tổng quát 2.0)
+**Tài liệu tham chiếu:** `dataset_spec.md` 
 
 ---
 
