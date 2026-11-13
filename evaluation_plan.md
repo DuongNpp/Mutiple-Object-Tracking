@@ -2,11 +2,11 @@
 **Đề tài:** Nghiên cứu Multiple Object Tracking dựa trên Deep Learning ID Prediction  
 **Tập trung đo lường:** HOTA, AssA, DetA, IDF1, MOTA, IDSW  
 **Công cụ chuẩn hóa:** TrackEval (Official Evaluation Protocol)  
-**Tài liệu tham chiếu:** `evaluation_plan.md` (Phiên bản 1.0)
+**Tài liệu tham chiếu:** `evaluation_plan.md`
 
 ---
 
-## 1. Mục tiêu & Tiêu chí nghiệm thu
+## 1. Mục tiêu 
 Xây dựng giao thức kiểm thử thống nhất, công bằng và có thể tái lập cho toàn bộ các thí nghiệm của nhóm. Đảm bảo mọi kết quả thực nghiệm từ baseline đến mô hình cải tiến đều được đo lường tự động trên cùng một tập dữ liệu, cùng một hệ thống metric chuẩn quốc tế và triệt tiêu sai số chủ quan.
 
 ---
